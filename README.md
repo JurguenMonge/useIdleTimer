@@ -18,6 +18,48 @@ Or using yarn
 
 ## Usage
 
+If you want to use the hook with the default sweetalert 
+```javascript
+sweetAlertOptions = {
+  position: "center",
+  icon: "info",
+  confirmButtonText: "Ok",
+  timer: 3000,
+}
+```
+Use the hook like this:
+
+```javascript
+ useIdleTimer(
+    80000, // Duration(ms) before user is considered inactive
+    handleIdle, // Function called when the user is inactive
+    "Inactive Session", // Title of the SweetAlert
+    "Your session will expire in 60 seconds if you do not interact with the system.", // Message of the SweetAlert
+    60000 // Time(ms) to show the warning before the session expires 
+  );
+```
+
+If u want use the hook with sweetalert custom
+```javascript
+ useIdleTimer(
+    60000,
+    handleIdle,
+    "Inactive Session",
+    "Your session will expire in 60 seconds if you do not interact with the system..",
+    30000,
+    //Config of sweetalert
+    {
+      position: "center",
+      icon: "info",
+      confirmButtonText: "Aceptar",
+      timer: 20000, // If you set the timer to 0 then the sweetalert will not have a timer
+    }
+  );
+```
+if u set the timer to 0 then the sweetalert will not have a timer, forever display the alert.
+
+
+Example of use:
 ```javascript
 import React from "react";
 import { useNavigate } from "react-router-dom";
